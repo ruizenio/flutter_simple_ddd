@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../lib.dart';
 
-void showSnackbar(BuildContext context, String? text,
-    {VoidCallback? onDone, int duration = 3, bool isError = false}) {
+void showSnackbar(
+  BuildContext context, 
+  String? text, {
+  VoidCallback? onDone, 
+  int duration = 3, 
+  bool isError = false,
+}) {
   ScaffoldMessenger.of(context).hideCurrentSnackBar();
   ScaffoldMessenger.of(context)
       .showSnackBar(SnackBar(
@@ -14,9 +19,7 @@ void showSnackbar(BuildContext context, String? text,
             color: isError ? AppColors.primary : Colors.white,
           ),
         ),
-      ))
-      .closed
-      .then((value) {
+      )).closed.then((value) {
     if (onDone != null) onDone();
   });
 }

@@ -18,8 +18,7 @@ class H2Atm extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var _currentStyle =
-        Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 16);
+    var _currentStyle = Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 16);
 
     return Text(
       text,

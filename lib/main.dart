@@ -8,12 +8,14 @@ void main() async {
   Intl.defaultLocale = 'id_ID';
   WidgetsFlutterBinding.ensureInitialized();
   await configureInjection(Environment.dev);
-  BlocOverrides.runZoned(() {
-    runApp(
-      BlocProvider(
-        create: (context) => getIt<AuthBloc>()..add(AuthEvent.started()),
-        child: App(),
-      ),
-    );
-  }, blocObserver: CustomBlocObserver());
+  Bloc.observer = CustomBlocObserver();
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => getIt<AuthBloc>()..add(AuthEvent.started())),
+        BlocProvider(create: (context) => getIt<LoginBloc>()),
+      ], 
+      child: App(),
+    ),
+  );
 }

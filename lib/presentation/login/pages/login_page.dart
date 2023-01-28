@@ -26,7 +26,10 @@ class LoginPage extends StatelessWidget {
         return Scaffold(
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 24,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -82,15 +85,11 @@ class LoginPage extends StatelessWidget {
                         ? "Password must not be empty!"
                         : null,
                     onChanged: (v) {
-                      context
-                          .read<LoginBloc>()
-                          .add(LoginEvent.onPasswordChanged(v));
+                      context.read<LoginBloc>().add(LoginEvent.onPasswordChanged(v));
                     },
                     withTogglePasswordIcon: true,
                     onPasswordIconPresssed: () {
-                      context
-                          .read<LoginBloc>()
-                          .add(LoginEvent.onTogglePassword());
+                      context.read<LoginBloc>().add(LoginEvent.onTogglePassword());
                     },
                   ),
                   SizedBox(

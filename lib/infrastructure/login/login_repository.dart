@@ -9,8 +9,10 @@ class LoginRepository implements ILoginRepository {
 
   // LoginRepository(this._network, this._sharedPreferences);
   @override
-  Future<Either<String, String>> login(
-      {required String email, required String password}) async {
+  Future<Either<String, String>> login({
+    required String email, 
+    required String password,
+  }) async {
     try {
       //---
       //Example of using real API.

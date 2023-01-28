@@ -6,8 +6,8 @@ import '../../lib.dart';
 @LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
   final SharedPreferences _sharedPreferences;
-
   AuthRepository(this._sharedPreferences);
+
   @override
   Future<Either<String, Unit>> checkAuth() async {
     try {
@@ -15,9 +15,7 @@ class AuthRepository implements IAuthRepository {
       if (user != null) {
         return right(unit);
       }
-      return left(
-        "No user logged in",
-      );
+      return left("No user logged in");
     } catch (e) {
       return left(e.toString());
     }

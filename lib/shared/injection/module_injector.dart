@@ -16,24 +16,25 @@ abstract class RegisterModules {
   AppRouters get appRouter => AppRouters();
 
   @lazySingleton
-  Alice alice(AppRouters appRouters) =>
-      Alice(navigatorKey: appRouters.navigatorKey, showNotification: false);
+  Alice alice(AppRouters appRouters) => Alice(
+    navigatorKey: appRouters.navigatorKey, 
+    showNotification: false,
+  );
 
   @lazySingleton
   Logger get logger => Logger(
-        filter: null,
-        printer: PrettyPrinter(
-          stackTraceBeginIndex: 1,
-          methodCount: 2,
-          printTime: true,
-        ),
-        output: null, //
-      );
+    filter: null,
+    printer: PrettyPrinter(
+      stackTraceBeginIndex: 1,
+      methodCount: 2,
+      printTime: true,
+    ),
+    output: null, //
+  );
 
   @preResolve
   @lazySingleton
-  Future<SharedPreferences> get sharedPreferences =>
-      SharedPreferences.getInstance();
+  Future<SharedPreferences> get sharedPreferences => SharedPreferences.getInstance();
 
   @preResolve
   @lazySingleton
@@ -76,8 +77,7 @@ class RequestInterceptor extends Interceptor {
 
   RequestInterceptor(this._sharedPreferences);
   @override
-  void onRequest(
-      RequestOptions options, RequestInterceptorHandler handler) async {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     String? token = (_sharedPreferences.getString(Config.token));
     if (token != null) {
       //Handle token interceptor

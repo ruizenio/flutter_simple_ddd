@@ -6,12 +6,22 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: H1Atm("Profile Page!"),
-      ),
-      floatingActionButton: PrimaryButton(
-        title: "Logout",
-        onPressed: () {},
+      body: Stack(
+        children: [
+          Center(
+            child: H1Atm("Profile Page!"),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: PrimaryButton(
+                title: "Logout",
+                onPressed: () {},
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

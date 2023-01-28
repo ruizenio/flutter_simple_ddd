@@ -1,4 +1,4 @@
-# flutter_ddd_boilerplate
+# flutter_simple_ddd
 
 Data-driven Development Built-in Boilerplate for Flutter
 

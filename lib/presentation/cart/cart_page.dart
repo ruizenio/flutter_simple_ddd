@@ -9,7 +9,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: H1Atm("History Page!"),
+        child: H1Atm("Cart Page!"),
       ),
     );
   }
